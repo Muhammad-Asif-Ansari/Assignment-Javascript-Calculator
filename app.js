@@ -1,27 +1,36 @@
- var display = document.getElementById("inputBox");
- var buttons = document.querySelectorAll("button");
-
-var buttonsArray = Array.from(buttons);
-
+var display = document.getElementById("inputBox");
 var string = "";
 
-buttonsArray.forEach(btn => {
-    
-    btn.addEventListener("click",(e) => {
+function handleClick(value) {
+    if (value == "DEL") {
+        string = string.slice(0, string.length - 1);
+    } 
+    else if (value == "AC") {
+        string = "";
+    } 
+    else if (value == "=") {
+        try {
+            string = eval(string).toString();
+        } catch (error) {
+            string = "Error";
+        }
+    } 
+    else if (!isNaN(value) || value === '.') {
+        string += value;
+    } 
+    else if (isOperator(value)) {
+        if (string === "" || isOperator(string.slice(-1))) {
+            if (string.slice(-1) === '-' || string.slice(-1) === '+' || string.slice(-1) === '*' || string.slice(-1) === '/' || string.slice(-1) === '%') {
+                string = string.slice(0, -1) + value;
+            }
+        } else {
+            string += value;
+        }
+    }
 
-        if(e.target.innerHTML == "DEL"){
-            string = string.substring(0, string.length-1);
-            display.value = string;
-        }else if(e.target.innerHTML  == "AC"){
-            string = "";
-            display.value = string;
-        }else if(e.target.innerHTML  == "="){
-                string = eval(string);
-                display.value = string;
-        }
-        else{
-        string += e.target.innerHTML;
-        display.value = string;
-        }
-    });    
-    });
+    display.value = string;
+}
+
+function isOperator(value) {
+    return ["+", "-", "*", "/", "%"].includes(value);
+}

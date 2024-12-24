@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,6 +38,52 @@
             <button>0</button>
             <button>.</button>
             <button class="equalBtn">=</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" value="" placeholder="0" id="inputBox" disabled>
+        <div>
+            <button class="operator ac" onclick="handleClick('AC')">AC</button>
+            <button class="operator del" onclick="handleClick('DEL')">DEL</button>
+            <button class="operator" onclick="handleClick('%')">%</button>
+            <button class="operator" onclick="handleClick('/')">/</button>
+        </div>
+        <div>
+            <button onclick="handleClick('7')">7</button>
+            <button onclick="handleClick('8')">8</button>
+            <button onclick="handleClick('9')">9</button>
+            <button class="operator" onclick="handleClick('*')">*</button>
+        </div>
+        <div>
+            <button onclick="handleClick('4')">4</button>
+            <button onclick="handleClick('5')">5</button>
+            <button onclick="handleClick('6')">6</button>
+            <button class="operator" onclick="handleClick('-')">-</button>
+        </div>
+        <div>
+            <button onclick="handleClick('1')">1</button>
+            <button onclick="handleClick('2')">2</button>
+            <button onclick="handleClick('3')">3</button>
+            <button class="operator" onclick="handleClick('+')">+</button>
+        </div>
+        <div>
+            <button onclick="handleClick('00')">00</button>
+            <button onclick="handleClick('0')">0</button>
+            <button onclick="handleClick('.')">.</button>
+            <button class="equalBtn" onclick="handleClick('=')">=</button>
         </div>
     </div>
     <script src="app.js"></script>
